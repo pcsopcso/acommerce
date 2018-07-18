@@ -12,7 +12,7 @@ public interface UserDao {
 	
 	public int delete(String id)throws Exception;
 	
-	public User findBy(String id)throws Exception;
+	public User findById(String id)throws Exception;
 	
 	public List<User> findAll()throws Exception;
 }

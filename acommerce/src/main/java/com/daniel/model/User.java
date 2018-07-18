@@ -18,6 +18,14 @@ public class User {
     
     @Column(length = 20)
     String email;    
+    
+    public User(String id, String name, String password, String email)
+    {
+    	this.setId(id);
+    	this.setName(name);
+    	this.setPassword(password);
+    	this.setEmail(email);
+    }
 
 	public String getId() {
 		return id;
