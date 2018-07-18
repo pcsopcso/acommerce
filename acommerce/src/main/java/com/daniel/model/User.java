@@ -7,14 +7,17 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @Column(length = 40)
+    @Column(length = 20)
     String id;    
 
-    @Column(length = 40, nullable = false)
+    @Column(length = 20, nullable = false)
     String name;
 
-    @Column(length = 40, nullable = false)
+    @Column(length = 20, nullable = false)
     String password;
+    
+    @Column(length = 20)
+    String email;    
 
 	public String getId() {
 		return id;
@@ -38,6 +41,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
 
