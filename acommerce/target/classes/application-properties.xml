@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>application-properties</comment>
+    <!-- Database -->
+    <entry key="db.driverClassName">org.h2.Driver</entry>
+    <entry key="db.url">jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1</entry>
+    <entry key="db.username">sa</entry>
+    <entry key="db.password"></entry>
+    <entry key="db.initialSize">10</entry>
+    <entry key="db.maxTotal">10</entry>
+    <entry key="db.maxIdle">10</entry>
+    <entry key="db.maxWaitMills">10000</entry>
+</properties>
