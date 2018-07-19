@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Spring HATEOAS - Examples - Commons
+Implementation-Version: 1.0.0.BUILD-SNAPSHOT
+Built-By: Daniel
+Implementation-Vendor-Id: org.springframework.hateoas.examples
+Build-Jdk: 1.8.0_171
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/spring-hateoas-examples/commons
+Created-By: Maven Integration for Eclipse
+
