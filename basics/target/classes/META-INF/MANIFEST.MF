@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Implementation-Title: Spring HATEOAS - Examples - Basics
 Implementation-Version: 2.0.3.RELEASE
-Built-By: Daniel
+Built-By: daniel
 Implementation-Vendor-Id: org.springframework.boot
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
