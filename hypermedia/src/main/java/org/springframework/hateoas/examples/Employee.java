@@ -38,6 +38,8 @@ class Employee implements Identifiable<Long> {
 
 	@Id @GeneratedValue
 	private Long id;
+
+
 	private String name;
 	private String role;
 
@@ -66,7 +68,10 @@ class Employee implements Identifiable<Long> {
 		this.manager = manager;
 	}
 
-	public Optional<Long> getId() {
+	public Long getId() {
+		return this.id;
+	}
+	public Optional<Long> getOptionalId() {
 		return Optional.ofNullable(this.id);
 	}
 

@@ -39,7 +39,7 @@ public class EmployeeWithManager {
 	
 	public Long getId() {
 		
-		return this.employee.getId()
+		return this.employee.getOptionalId()
 			.orElseThrow(() -> new RuntimeException("Couldn't find anything."));
 	}
 

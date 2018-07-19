@@ -67,7 +67,7 @@ class EmployeeController {
 
 		Employee savedEmployee = repository.save(newEmployee);
 
-		return findOne(savedEmployee.getId().get());
+		return findOne(savedEmployee.getId());
 	}
 
 	/**

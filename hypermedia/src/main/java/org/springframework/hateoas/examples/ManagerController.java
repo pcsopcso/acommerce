@@ -61,7 +61,7 @@ class ManagerController {
 
 		Manager savedManager = repository.save(newManager);
 
-		return findOne(savedManager.getId().get());
+		return findOne(savedManager.getId());
 	}
 
 	/**

@@ -63,8 +63,12 @@ class Manager implements Identifiable<Long> {
 	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
+	
+	public Long getId() {
+		return this.id;
+	}
 
-	public Optional<Long> getId() {
+	public Optional<Long> getOptionalId() {
 		return Optional.ofNullable(this.id);
 	}
 

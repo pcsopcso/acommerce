@@ -47,7 +47,7 @@ class EmployeeResourceAssembler extends SimpleIdentifiableResourceAssembler<Empl
 		 */
 		super.addLinks(resource);
 
-		resource.getContent().getId()
+		resource.getContent().getOptionalId()
 			.ifPresent(id -> {
 				// Add additional links
 				resource.add(linkTo(methodOn(ManagerController.class).findManager(id)).withRel("manager"));

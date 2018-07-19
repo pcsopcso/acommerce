@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Implementation-Title: Spring HATEOAS - Examples - Hypermedia
-Implementation-Version: 1.0.0.BUILD-SNAPSHOT
-Built-By: Daniel
-Implementation-Vendor-Id: org.springframework.hateoas.examples
+Implementation-Version: 2.0.3.RELEASE
+Built-By: daniel
+Implementation-Vendor-Id: org.springframework.boot
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/spring-hateoas-examples/spring-hateoas-examples-hyp
- ermedia
+ ot-starter-parent/spring-hateoas-examples-hypermedia
 Created-By: Maven Integration for Eclipse
 
