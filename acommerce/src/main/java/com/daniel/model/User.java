@@ -19,7 +19,9 @@ public class User {
     @Column(length = 20)
     String email;    
     
-    public User(String id, String name, String password, String email)
+    User(){}
+    
+    public User(final String id, final String name, final String password, final String email)
     {
     	this.setId(id);
     	this.setName(name);
@@ -57,6 +59,11 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + "]";
 	}
 }
 
