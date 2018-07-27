@@ -1,8 +1,5 @@
 package com.daniel.acommerce;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.assertThat;
- 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -37,9 +34,9 @@ public class UserDaoImplTest {
      
     @Test
     public void create() throws Exception{
-        User user = new User("pcso1", "daniel", "pw1", "test@gmail.com");
+        User user = new User("pcso1", "daniel", "pw1", "test@gmail.com", 1);
         userDao.create(user);
-        User actual = userDao.findById(user.getId());
+        User actual = userDao.findById(user.getUsername());
         logger.info("user: {}", actual.toString());
         //assertThat(actual, equalTo(user));
     }

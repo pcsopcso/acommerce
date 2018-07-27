@@ -28,8 +28,8 @@ public class UserDaoImpl extends JdbcDaoSupport  implements UserDao  {
 	
 	@Override
 	public int create(User user) throws Exception {
-		String sql = "insert into USERS values(?, ?, ?, ?)";
-        getJdbcTemplate().update(sql, user.getId(), user.getPassword(), user.getName(), user.getEmail());
+		String sql = "insert into USERS values(?, ?, ?, ?, ?)";
+        getJdbcTemplate().update(sql, user.getUsername(), user.getName(), user.getPassword(), user.getEmail(), user.getEnabled());
  		return 0;
 	}
 
@@ -41,25 +41,26 @@ public class UserDaoImpl extends JdbcDaoSupport  implements UserDao  {
 	}
 
 	@Override
-	public int delete(String id) throws Exception {
+	public int delete(String username) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public User findById(String id) throws Exception {
-		String sql = "select * from USERS where Id = ?";
+	public User findById(String username) throws Exception {
+		String sql = "select * from USERS where username = ?";
         RowMapper<User> rowMapper = new RowMapper<User>(){
             @Override
             public User mapRow(ResultSet rs, int rowNum) throws SQLException {
                 return new User(
-                        rs.getString("id"),
+                        rs.getString("username"),
                         rs.getString("password"),
                         rs.getString("name"),
-                        rs.getString("email"));
+                        rs.getString("email"),
+                        rs.getInt("enabled"));
             }
         };
-        return getJdbcTemplate().queryForObject(sql, rowMapper, id);
+        return getJdbcTemplate().queryForObject(sql, rowMapper, username);
 	}
 
 	@Override

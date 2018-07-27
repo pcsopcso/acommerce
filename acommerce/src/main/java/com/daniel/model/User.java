@@ -8,7 +8,7 @@ public class User {
 
     @Id
     @Column(length = 20)
-    String id;    
+    String username;    
 
     @Column(length = 20, nullable = false)
     String name;
@@ -17,24 +17,28 @@ public class User {
     String password;
     
     @Column(length = 20)
-    String email;    
+    String email;
     
-    User(){}
+    @Column
+    int enabled;
     
-    public User(final String id, final String name, final String password, final String email)
+	User(){}
+    
+    public User(final String username, final String name, final String password, final String email, int enabled)
     {
-    	this.setId(id);
+    	this.setUsername(username);
     	this.setName(name);
     	this.setPassword(password);
     	this.setEmail(email);
+    	this.setEnabled(enabled);
     }
 
-	public String getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getName() {
@@ -61,9 +65,17 @@ public class User {
 		this.email = email;
 	}
 	
+    public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+	
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + "]";
+		return "Customer [username=" + username + ", name=" + name + ", password=" + password + ", email=" + email + ", enabled=" + enabled + "]";
 	}
 }
 

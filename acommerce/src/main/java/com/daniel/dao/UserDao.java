@@ -10,9 +10,9 @@ public interface UserDao {
 	
 	public int update(User user)throws Exception;
 	
-	public int delete(String id)throws Exception;
+	public int delete(String username)throws Exception;
 	
-	public User findById(String id)throws Exception;
+	public User findById(String username)throws Exception;
 	
 	public List<User> findAll()throws Exception;
 }
