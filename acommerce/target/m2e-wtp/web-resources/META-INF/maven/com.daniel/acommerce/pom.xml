@@ -32,6 +32,19 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
+        
+        <!-- 최소 의존성 -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>4.2.1.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>4.2.1.RELEASE</version>
+		</dependency>
                 
         <!-- AspectJ -->
         <dependency>
