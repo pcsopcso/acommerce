@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS GROUP_AUTHORITIES;
 DROP TABLE IF EXISTS GROUP_MEMBERS;
 
 /**********************************/
-/* Table Name: 회원 */
+/* Table Name: 회원 */ 
 /**********************************/
 CREATE TABLE USERS (
 username    varchar(20)     NOT NULL,
