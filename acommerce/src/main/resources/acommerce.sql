@@ -3,6 +3,8 @@ DROP TABLE IF EXISTS AUTHORITIES;
 DROP TABLE IF EXISTS GROUPS;
 DROP TABLE IF EXISTS GROUP_AUTHORITIES;
 DROP TABLE IF EXISTS GROUP_MEMBERS;
+/***********************************/
+DROP TABLE IF EXISTS PRODUCT;
 
 /**********************************/
 /* Table Name: 회원 */ 
@@ -83,11 +85,27 @@ COMMENT ON TABLE GROUP_MEMBERS is '그룹 회원 관계';
 COMMENT ON COLUMN GROUP_MEMBERS.group_id is '그룹 아이디';
 COMMENT ON COLUMN GROUP_MEMBERS.username is '회원 아이디';
 
-
 ALTER TABLE GROUP_MEMBERS ADD CONSTRAINT IDX_group_members_PK PRIMARY KEY (group_id, username);
 ALTER TABLE GROUP_MEMBERS ADD CONSTRAINT IDX_group_members_FK0 FOREIGN KEY (username) REFERENCES users (username);
 ALTER TABLE GROUP_MEMBERS ADD CONSTRAINT IDX_group_members_FK1 FOREIGN KEY (group_id) REFERENCES groups (id);
 
+/**********************************/
+/* Table Name: 제품 */ 
+/**********************************/
+CREATE TABLE PRODUCT (
+id		    	LONG     		NOT NULL, -- 상품 번호 
+productname 	varchar(50)     NOT NULL, -- 상품 이름 
+price    		LONG		    NOT NULL, -- 상품 가격 
+description 	varchar(200),			  -- 상품 상세설
+);
+
+ALTER TABLE PRODUCT ADD CONSTRAINT IDX_product_PK PRIMARY KEY (id);
+
+COMMENT ON TABLE product is '회원';
+COMMENT ON COLUMN product.id is '상품 번호';
+COMMENT ON COLUMN product.productname is '상품 이름';
+COMMENT ON COLUMN product.price is '상품 가격';
+COMMENT ON COLUMN product.description is '상품 설명';
 
 -- 회원 데이터 입력
 INSERT INTO USERS (username, name, password, email, enabled) VALUES('pcso', '박승현', 'pw1', 'pcso@hanwha.com', 1);
@@ -110,4 +128,15 @@ INSERT INTO group_authorities (group_id, authority) VALUES ('G02', 'ROLE_USER');
 -- 그룹 회원
 INSERT INTO group_members (group_id, username) VALUES ('G01', 'admin');
 INSERT INTO group_members (group_id, username) VALUES ('G02', 'pcso');
+
+-- 상품 목록 
+INSERT INTO PRODUCT VALUES (1,'나이키',100000,'나이키 2017년 신상제품입니다.');
+INSERT INTO PRODUCT VALUES (2,'아디다스',80000,'아디다스의 스테디 셀러!');
+INSERT INTO PRODUCT VALUES (3,'뉴발란스',110000,'뉴발란스의 2016년 최고의 신발');
+INSERT INTO PRODUCT VALUES (4,'푸마',98000,'푸마 30프로 특가할인 제품입니다.');
+INSERT INTO PRODUCT VALUES (5,'팀버랜드',150000,'팀버랜드 스테디 셀러! 특별할인 중입니다.');
+INSERT INTO PRODUCT VALUES (6,'락포트',99000,'편안한 로퍼 락포트입니다.');
+INSERT INTO PRODUCT VALUES (7,'리복',120000,'2017 신상 퓨리 입고되었습니다.');
+INSERT INTO PRODUCT VALUES (8,'컨버스',60000,'컨버스 특가할인 중입니다.');
+
 

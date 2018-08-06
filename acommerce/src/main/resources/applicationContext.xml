@@ -19,12 +19,14 @@
         p:maxTotal="${db.maxTotal}"
         p:maxIdle="${db.maxIdle}"
         p:maxWaitMillis="${db.maxWaitMills}"
-    />
-     
-     
+    />  
+    
     <bean id="userDaoImpl" class="com.daniel.dao.UserDaoImpl"
         p:dataSource-ref="dataSource"
     />
- 
-     
+    
+    <bean id="productDaoImpl" class="com.daniel.dao.ProductDaoImpl"
+        p:dataSource-ref="dataSource"
+    />
+    
 </beans>

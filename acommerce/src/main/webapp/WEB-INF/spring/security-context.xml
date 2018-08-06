@@ -12,7 +12,7 @@
 	    <intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')" />
 	    
 	    <form-login login-page="/login/loginForm.do"
-	                default-target-url="/home.do"
+	                default-target-url="/board/list.do"
 	                authentication-failure-url="/login/loginForm.do?error"
 	                username-parameter="id"
 	                password-parameter="password" />

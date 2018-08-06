@@ -14,7 +14,7 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 	
 	@RequestMapping(value = "/login/loginForm.do", method = RequestMethod.GET)
-	public String loginFor(Locale locale, Model model) {
+	public String loginForm(Locale locale, Model model) {
 		logger.info("Welcome Login Form!");
 		
 		return "login/loginForm";

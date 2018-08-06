@@ -25,6 +25,9 @@
 
 <h3>
     [<a href="<c:url value="/intro/introduction.do" />">소개 페이지</a>]
+    <sec:authorize access="isAuthenticated()">
+    [<a href="<c:url value="/board/list.do" />">제품목록</a>]
+	</sec:authorize>
     [<a href="<c:url value="/admin/adminHome.do" />">관리자 홈</a>]
 </h3>
 </body>
