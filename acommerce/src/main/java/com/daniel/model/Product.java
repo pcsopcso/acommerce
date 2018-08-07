@@ -26,7 +26,7 @@ public class Product {
     	this.setId(id);
     	this.setProductname(productname);
     	this.setPrice(price);
-    	this.setDiscription(description);
+    	this.setDescription(description);
     }
 
 	public Long getId() {
@@ -57,7 +57,7 @@ public class Product {
 		return description;
 	}
 
-	public void setDiscription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 	

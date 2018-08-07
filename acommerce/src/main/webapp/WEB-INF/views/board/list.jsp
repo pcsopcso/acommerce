@@ -3,8 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>로그인 페이지</title>
@@ -20,8 +19,8 @@
             <th>가격</th>
             <th>상품설명</th>
         </tr>
-        <!-- 
-        <c:forEach var="row" items="${productList}">
+        
+        <c:forEach var="row" items="${list}">
         <tr>
             <td>
                 ${row.id}
@@ -33,11 +32,11 @@
                 <fmt:formatNumber value="${row.price}" pattern="###,###,###"/>
             </td>
             <td>
-                ${row.discription}
+                ${row.description}
             </td>
         </tr>
         </c:forEach>
-         -->
+         
     </table>
 </sec:authorize>
 <sec:authorize access="isAnonymous()">

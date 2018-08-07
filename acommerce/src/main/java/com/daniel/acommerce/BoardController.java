@@ -9,27 +9,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.daniel.dao.ProductDaoImpl;
 import com.daniel.model.Product;
 import com.daniel.service.ProductServiceImpl;
 
 @Controller
 public class BoardController {
 
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
 	private ProductServiceImpl productService;
 	
-	@RequestMapping(value = "/board/list.do", method = RequestMethod.GET)
-	public String loginFor(Locale locale, Model model) throws Exception {
-		List<Product> list = productService.listProduct();
-		
-		//model.addAttribute("productList", list );
-		
-		//logger.info("Welcome board list");
+	
+	@RequestMapping(value = "/board/list.do")
+	public String list(Locale locale, Model model) {
+		try {
+			List<Product> list = productService.listProduct();
+			model.addAttribute("list", list );
+			logger.info("Welcome board list");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return "board/list";
 	}

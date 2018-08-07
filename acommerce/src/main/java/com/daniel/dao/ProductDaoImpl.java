@@ -59,31 +59,4 @@ public class ProductDaoImpl extends JdbcDaoSupport  implements ProductDao  {
                         rs.getLong("price"),
                         rs.getString("description")));
 	}
-
-	
-
-/*
-	@Override
-	public User findById(String username) throws Exception {
-		String sql = "select * from USERS where username = ?";
-        RowMapper<User> rowMapper = new RowMapper<User>(){
-            @Override
-            public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new User(
-                        rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getString("name"),
-                        rs.getString("email"),
-                        rs.getInt("enabled"));
-            }
-        };
-        return getJdbcTemplate().queryForObject(sql, rowMapper, username);
-	}
-
-	@Override
-	public List<User> findAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
 }

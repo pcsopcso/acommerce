@@ -13,7 +13,7 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductDaoImpl productDao;
 
-    // 01. 상품목록
+	// 01. 상품목록
     @Override
     public List<Product> listProduct() throws Exception {
         return productDao.findAll();
