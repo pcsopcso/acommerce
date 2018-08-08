@@ -15,40 +15,41 @@ public class ProductDaoImpl extends JdbcDaoSupport  implements ProductDao  {
 
 	@Override
 	public int create(Product product) throws Exception {
-		// TODO Auto-generated method stub
+		int result = 0;
 		try {
 			String sql = "insert into Product values(?, ?, ?, ?)";
-			getJdbcTemplate().update(sql, product.getId(), product.getProductname(), product.getPrice(), product.getDescription());
+			result = getJdbcTemplate().update(sql, product.getId(), product.getProductname(), product.getPrice(), product.getDescription());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
 	public int update(Product product) throws Exception {
-		// TODO Auto-generated method stub
+		int result = 0;
 		try {
 			String sql = "update Product set productname=?, price=?, description=? WHERE id=?";
-			getJdbcTemplate().update(sql, product.getProductname(), product.getPrice(), product.getDescription(), product.getId());
+			result = getJdbcTemplate().update(sql, product.getProductname(), product.getPrice(), product.getDescription(), product.getId());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
 	public int delete(Long id) throws Exception {
+		int result = 0;
 		try {
 			String sql = "delete from Product where id = ?";
-			getJdbcTemplate().update(sql, id);
+			result = getJdbcTemplate().update(sql, id);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
