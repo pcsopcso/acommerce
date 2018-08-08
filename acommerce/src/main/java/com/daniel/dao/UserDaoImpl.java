@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
@@ -20,52 +21,95 @@ public class UserDaoImpl extends JdbcDaoSupport  implements UserDao  {
 
 	@PostConstruct
     public void initialize(){
-        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-        populator.addScript(new ClassPathResource("acommerce.sql"));
-        DatabasePopulatorUtils.execute(populator, getDataSource());
+        try {
+			ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+			populator.addScript(new ClassPathResource("acommerce.sql"));
+			DatabasePopulatorUtils.execute(populator, getDataSource());
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 	
 	@Override
 	public int create(User user) throws Exception {
-		String sql = "insert into USERS values(?, ?, ?, ?, ?)";
-        getJdbcTemplate().update(sql, user.getUsername(), user.getName(), user.getPassword(), user.getEmail(), user.getEnabled());
- 		return 0;
+		int result = 0;
+		try {
+			String sql = "insert into USERS values(?, ?, ?, ?, ?)";
+			result = getJdbcTemplate().update(sql, user.getUsername(), user.getName(), user.getPassword(), user.getEmail(), user.getEnabled());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 		return result;
 	}
 
 	@Override
 	public int update(User user) throws Exception {
-		// TODO Auto-generated method stub
-		
-		return 0;
+		int result = 0;
+		try {
+			String sql = "update USERS set name=?, password=?, email=?, enabled=? WHERE username=?";
+			result = getJdbcTemplate().update(sql, user.getName(), user.getPassword(), user.getEmail(), user.getEnabled(), user.getUsername());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public int delete(String username) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		try {
+			String sql = "delete from USERS where id = ?";
+			result = getJdbcTemplate().update(sql, username);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public User findById(String username) throws Exception {
 		String sql = "select * from USERS where username = ?";
-        RowMapper<User> rowMapper = new RowMapper<User>(){
-            @Override
-            public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new User(
-                        rs.getString("username"),
-                        rs.getString("password"),
-                        rs.getString("name"),
-                        rs.getString("email"),
-                        rs.getInt("enabled"));
-            }
-        };
-        return getJdbcTemplate().queryForObject(sql, rowMapper, username);
+        try {
+			RowMapper<User> rowMapper = new RowMapper<User>(){
+			    @Override
+			    public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+			        return new User(
+			                rs.getString("username"),
+			                rs.getString("password"),
+			                rs.getString("name"),
+			                rs.getString("email"),
+			                rs.getInt("enabled"));
+			    }
+			};
+			return getJdbcTemplate().queryForObject(sql, new Object[]{username}, rowMapper);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        return null;
 	}
 
 	@Override
 	public List<User> findAll() throws Exception {
-		// TODO Auto-generated method stub
+		String sql = "select * from USERS";
+		try {
+			return getJdbcTemplate().query(sql,
+			        (rs, rowNum) -> new User(
+			        		rs.getString("username"),
+			                rs.getString("password"),
+			                rs.getString("name"),
+			                rs.getString("email"),
+			                rs.getInt("enabled")));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

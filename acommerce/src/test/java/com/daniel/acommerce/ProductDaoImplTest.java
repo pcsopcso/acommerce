@@ -29,7 +29,7 @@ public class ProductDaoImplTest {
     @Test
     public void findById() throws Exception {
         Product product = productDao.findById(Long.valueOf(1));
-        logger.info("product: {}", product.toString());
+        logger.info("product findby: {}", product.toString());
     }
      
     @Test
@@ -37,7 +37,7 @@ public class ProductDaoImplTest {
     	Product product = new Product(Long.valueOf(11), "벤츠", Long.valueOf(100000000), "독일 자동차");
     	productDao.create(product);
     	Product actual = productDao.findById(product.getId());
-        logger.info("product: {}", actual.toString());
+        logger.info("product create: {}", actual.toString());
         //assertThat(actual, equalTo(user));
     }
 }

@@ -29,15 +29,15 @@ public class UserDaoImplTest {
     @Test
     public void findById() throws Exception {
         User user = userDao.findById("pcso");
-        logger.info("user: {}", user.toString());
+        logger.info("user findby: {}", user.toString());
     }
      
     @Test
     public void create() throws Exception{
         User user = new User("pcso1", "daniel", "pw1", "test@gmail.com", 1);
-        userDao.create(user);
+        int result = userDao.create(user);
         User actual = userDao.findById(user.getUsername());
-        logger.info("user: {}", actual.toString());
+        logger.info("user create: {}, rusult: {}", actual.toString(), result);
         //assertThat(actual, equalTo(user));
     }
 }
