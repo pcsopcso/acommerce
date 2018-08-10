@@ -26,6 +26,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource(collectionResourceRel = "managers", path = "managers")
 interface ManagerRepository extends PagingAndSortingRepository<Manager, Long> {
 	
-	@RestResource(path = "findbyname")
-	Page<Manager> findByName(@Param("name") String name, Pageable pageable);
+	//@RestResource(path = "findbyname")
+	//Manager findByName(@Param("name") String name, Pageable pageable);
 }

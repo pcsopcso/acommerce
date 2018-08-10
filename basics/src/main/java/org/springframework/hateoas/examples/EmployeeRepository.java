@@ -31,6 +31,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 @RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
 interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 	
-	@RestResource(path = "findbyname")
-	Page<Employee> findByName(@Param("name") String name, Pageable pageable);
+	//@RestResource(path = "findbyname")
+	//Employee findByName(@Param("name") String name, Pageable pageable);
 }
