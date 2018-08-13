@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class EmployeeWithManager {
 
 	@JsonIgnore
-	private Employee employee=null;
+	private Employee employee;
 	
 	EmployeeWithManager(final Employee employee)
 	{

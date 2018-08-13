@@ -57,8 +57,6 @@ class Employee {
 	private Long id;
 	private String name;	
 	private String role;
-	
-	protected Employee() {}
 
 	@OneToOne
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY) 

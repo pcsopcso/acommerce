@@ -44,8 +44,6 @@ class Manager {
 	private Long id;
 	private String name;
 	
-	protected Manager() {}
-	
 	public Manager(String name) {
 		this.setName(name);
 	}

@@ -1,0 +1,65 @@
+
+
+#server:
+#  port: 8081
+#  servlet:
+#    context-path: /restauth
+
+
+
+#security:
+#  basic:
+#    enabled: false
+#  user:
+#    name: user
+#    password: test
+#    
+
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console       
+        
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.h2.Driver  
+    url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1;INIT=runscript from 'classpath:schema.sql'
+    username: sa
+    password:
+    hikari:
+      maximum-pool-size: 10
+      max-lifetime: 30
+      
+      
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.jdbc.Driver  
+#    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf8&useSSL=true
+#    username: root
+#    password: 1234
+#    hikari:
+#      maximum-pool-size: 10
+#      max-lifetime: 30
+    
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+    
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver   
+#    url: jdbc:mysql://localhost:3306/test_db?useUnicode=true&characterEncoding=utf8&useSSL=true
+#    username: root
+#    password: 1234
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true     

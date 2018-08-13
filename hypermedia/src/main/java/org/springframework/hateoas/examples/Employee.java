@@ -51,8 +51,6 @@ class Employee implements Identifiable<Long> {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY) 
 	private Manager manager;
 	
-	protected Employee() {}
-	
 	Employee(String name, String role, Manager manager) {
 
 		this.setName(name);
