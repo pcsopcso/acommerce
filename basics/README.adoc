@@ -10,7 +10,7 @@ NOTE: This example uses https://projectlombok.org[Project Lombok] to reduce writ
 
 The cornerstone of any example is the domain object:
 
-[source,java]
+[source,java]dd
 ----
 @Data
 @Entity
