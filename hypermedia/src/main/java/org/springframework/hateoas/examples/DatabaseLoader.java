@@ -27,39 +27,6 @@ import org.springframework.stereotype.Component;
 @Component
 class DatabaseLoader {
 
-	/*@Bean
-	CommandLineRunner initDatabase(EmployeeRepository employeeRepository, ManagerRepository managerRepository) {
-		return args -> {*/
-			/*
-			 * Gather Gandalf's team
-			 */
-	/*
-			Manager daniel = managerRepository.save(new Manager("Daniel"));
-
-			Employee mavel1 = employeeRepository.save(new Employee("토니 스타크", "아이언맨", daniel));
-			Employee mavel2 = employeeRepository.save(new Employee("브루스 배너", "헐크", daniel));
-			Employee mavel3 = employeeRepository.save(new Employee("스콧", "앤트맨", daniel));
-
-
-			daniel.setEmployees(Arrays.asList(mavel1, mavel2,mavel3));
-			managerRepository.save(daniel);
-
-			/*
-			 * Put together Saruman's team
-			 */
-	/*
-			Manager catain = managerRepository.save(new Manager("Catain America"));
-
-			Employee mavel4 = employeeRepository.save(new Employee("토르", "천둥의신", catain));
-			Employee mavel5 = employeeRepository.save(new Employee("나타샤", "블랙위도우", catain));
-			Employee mavel6 = employeeRepository.save(new Employee("클린트 바튼", "호크아이", catain));
-
-			catain.setEmployees(Arrays.asList(mavel4, mavel5, mavel6));
-
-			managerRepository.save(catain);
-		};
-	}
-	*/
 	@Bean
     CommandLineRunner runner(EmployeeRepository employeeRepository, ManagerRepository managerRepository) {
         return args -> {

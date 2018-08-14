@@ -16,8 +16,9 @@
 package org.springframework.hateoas.examples;
 
 import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,17 +27,23 @@ import org.springframework.stereotype.Component;
  * @author Daniel
  */
 @Component
-class DatabaseLoader {
+public class DatabaseLoader implements CommandLineRunner {
 
 	/**
-	 * Use Spring to inject a {@link EmployeeRepository} that can then load data. Since this will run
+	 * Use Spring to inject a {@link UserRepository} that can then load data. Since this will run
 	 * only after the app is operational, the database will be up.
 	 *
 	 * @param repository
 	 */
-	@Bean
-    CommandLineRunner runner(EmployeeRepository employeeRepository, ManagerRepository managerRepository) {
-        return args -> {
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@Autowired
+	ManagerRepository managerRepository;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		
         	Manager daniel = managerRepository.save(new Manager("Daniel"));
             Arrays.asList(
                     new Employee("토니 스타크", "아이언맨", daniel),
@@ -56,6 +63,5 @@ class DatabaseLoader {
         	.forEach(account -> employeeRepository.save(account));
             employeeRepository.findAll().forEach(System.out::println);
             managerRepository.save(catain);
-        };
     }
 }
